@@ -346,7 +346,7 @@ behaviors {
      &none        &n1        &n2           &n3           &n4      &n5                                                                       &n6        &n7              &n8        &n9        &n0               &kp F11
  &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                     &kp Z      &kp W            &kp D      &kp L      &kp Q               &kp F12
  &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                     &kp G      &kp S            &kp T      &kp R      &kp N                &kp F6
- &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 1 RET  &lt 2 BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
+ &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 2 RET    &kp BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
      &none   &sk LALT   &kp BSLH     &left_par    &right_par           &kp SPACE  &lt 2 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &magic_key           &und_mns        &kp MINUS  &kp LC(S)  &kp EQUAL                 &none
             >;
         };
