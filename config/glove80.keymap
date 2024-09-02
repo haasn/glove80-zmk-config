@@ -311,7 +311,7 @@ behaviors {
         #binding-cells = <0>;
         defaults = <&none>;
         bindings = <&kp O>, <&kp L>, <&kp S>, <&kp M>, <&kp U>, <&kp Y>,
-                   <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp O>, <&kp R>,
+                   <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp Y>, <&kp R>,
                    <&kp T>, <&kp G>, <&kp A>, <&kp H>, <&kp U>, <&kp L>,
                    <&kp C>, <&kp M>, <&kp E>, <&kp S>, <&kp S>, <&kp X>,
                    <&kp H>, <&kp S>, <&shift_the>;
