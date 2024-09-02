@@ -34,6 +34,24 @@
 #endif
 
 /* Custom Device-tree */
+/ {
+    behaviors {
+        star: star_key {
+            compatible = "zmk,behavior-antecedent-morph";
+            label = "STAR_KEY";
+            #binding-cells = <0>;
+            defaults = <&none>;
+            bindings = <&kp O>, <&kp L>, <&kp S>, <&kp G>, <&kp U>, <&kp Y>,
+                       <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp O>, <&kp R>,
+                       <&kp T>, <&kp G>, <&kp A>, <&kp H>, <&kp U>, <&kp L>,
+                       <&kp C>, <&kp M>, <&kp E>, <&kp S>, <&kp S>, <&kp X>,
+                       <&kp H>, <&kp S>, <&shift_the>;
+            antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z SPACE>;
+            max-delay-ms = <1000>;
+        };
+    };
+};
+
 &lt {
     flavor = "hold-preferred";
 };
@@ -303,20 +321,6 @@ behaviors {
         #binding-cells = <0>;
         bindings = <&the>, <&the_upper>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    star: star_key {
-            compatible = "zmk,behavior-antecedent-morph";
-            label = "STAR_KEY";
-            #binding-cells = <0>;
-            defaults = <&none>;
-            bindings = <&kp O>, <&kp L>, <&kp S>, <&kp G>, <&kp U>, <&kp Y>,
-                       <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp O>, <&kp R>,
-                       <&kp T>, <&kp G>, <&kp A>, <&kp H>, <&kp U>, <&kp L>,
-                       <&kp C>, <&kp M>, <&kp E>, <&kp S>, <&kp S>, <&kp X>,
-                       <&kp H>, <&kp S>, <&shift_the>;
-            antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z SPACE>;
-            max-delay-ms = <1000>;
     };
 
     ht_star: star_hold_tap {
