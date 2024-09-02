@@ -305,9 +305,9 @@ behaviors {
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    magic_key: magic_key {
+    star: star_key {
             compatible = "zmk,behavior-antecedent-morph";
-            label = "MAGIC_KEY";
+            label = "STAR_KEY";
             #binding-cells = <0>;
             defaults = <&none>;
             bindings = <&kp O>, <&kp L>, <&kp S>, <&kp G>, <&kp U>, <&kp Y>,
@@ -317,6 +317,15 @@ behaviors {
                        <&kp H>, <&kp S>, <&shift_the>;
             antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z SPACE>;
             max-delay-ms = <1000>;
+    };
+
+    ht_star: star_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        label = "STAR_HOLD_TAP";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <200>;
+        bindings = <&mo>, <&star>;
     };
 };
 };
@@ -371,12 +380,12 @@ behaviors {
 
         layer_Basic {
             bindings = <
-  &kp LEFT  &kp RIGHT  &kp LC(Q)  &kp C_VOL_DN  &kp C_VOL_UP                                                                                     &kp PSCRN  &kp PAUSE_BREAK     &tog 3     &tog 4  &magic LAYER_Magic 0
-     &none        &n1        &n2           &n3           &n4      &n5                                                                       &n6        &n7              &n8        &n9        &n0               &kp F11
- &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                     &kp Z      &kp W            &kp D      &kp L      &kp Q               &kp F12
- &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                     &kp G      &kp S            &kp T      &kp R      &kp N                &kp F6
- &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 3 RET    &kp BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
-     &none   &sk LALT   &kp BSLH     &left_par    &right_par           &kp SPACE  &lt 3 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &magic_key           &und_mns        &kp MINUS  &kp LC(S)  &kp EQUAL                 &none
+  &kp LEFT  &kp RIGHT  &kp LC(Q)  &kp C_VOL_DN  &kp C_VOL_UP                                                                                                  &kp PSCRN  &kp PAUSE_BREAK     &tog 3     &tog 4  &magic LAYER_Magic 0
+     &none        &n1        &n2           &n3           &n4      &n5                                                                                    &n6        &n7              &n8        &n9        &n0               &kp F11
+ &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                                  &kp Z      &kp W            &kp D      &kp L      &kp Q               &kp F12
+ &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                                  &kp G      &kp S            &kp T      &kp R      &kp N                &kp F6
+ &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 3 RET                 &kp BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
+     &none   &sk LALT   &kp BSLH     &left_par    &right_par           &kp SPACE  &lt 3 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &ht_star LAYER_Symbol 0           &und_mns        &kp MINUS  &kp LC(S)  &kp EQUAL                 &none
             >;
         };
 
