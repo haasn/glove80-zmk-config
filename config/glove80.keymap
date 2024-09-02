@@ -23,9 +23,10 @@
 /* Automatically generated layer name #define */
 #define LAYER_Basic 0
 #define LAYER_International 1
-#define LAYER_Function 2
-#define LAYER_Gaming 3
-#define LAYER_Magic 4
+#define LAYER_Symbol 2
+#define LAYER_Function 3
+#define LAYER_Gaming 4
+#define LAYER_Magic 5
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 #ifndef LAYER_Lower
@@ -280,25 +281,11 @@
 /* Custom Defined Behaviors */
 / {
 behaviors {
-    SHIFT_OVERRIDE(left_par, RS(N9), LEFT_BRACKET)
-    SHIFT_OVERRIDE(right_par, RS(N0), RIGHT_BRACKET)
+    SHIFT_OVERRIDE(left_par, RS(N9), RS(LEFT_BRACKET))
+    SHIFT_OVERRIDE(right_par, RS(N0), RS(RIGHT_BRACKET))
     SHIFT_OVERRIDE(dot_qstn, DOT, RS(SLASH))
     SHIFT_OVERRIDE(cma_slsh, COMMA, SLASH)
     SHIFT_OVERRIDE(und_mns, RS(MINUS), MINUS)
-
-    magic_key: magic_key {
-            compatible = "zmk,behavior-antecedent-morph";
-            label = "MAGIC_KEY";
-            #binding-cells = <0>;
-            defaults = <&key_repeat>;
-            bindings = <&kp O>, <&kp L>, <&kp S>, <&kp G>, <&kp U>, <&kp Y>,
-                       <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp O>, <&kp R>,
-                       <&kp T>, <&kp G>, <&kp A>, <&kp H>, <&kp U>, <&kp L>,
-                       <&kp C>, <&kp M>, <&kp E>, <&kp S>, <&kp S>, <&kp X>,
-                       <&kp H>, <&kp S>;
-            antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
-            max-delay-ms = <1000>;
-    };
 
     SHIFT_OVERRIDE(n1, RS(N1), N1)
     SHIFT_OVERRIDE(n2, RS(N2), N2)
@@ -310,13 +297,63 @@ behaviors {
     SHIFT_OVERRIDE(n8, RS(N8), N8)
     SHIFT_OVERRIDE(n9, RS(COMMA), N9)
     SHIFT_OVERRIDE(n0, RS(PERIOD), N0)
+
+    magic_key: magic_key {
+            compatible = "zmk,behavior-antecedent-morph";
+            label = "MAGIC_KEY";
+            #binding-cells = <0>;
+            defaults = <&none>;
+            bindings = <&kp O>, <&kp L>, <&kp S>, <&kp G>, <&kp U>, <&kp Y>,
+                       <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp O>, <&kp R>,
+                       <&kp T>, <&kp G>, <&kp A>, <&kp H>, <&kp U>, <&kp L>,
+                       <&kp C>, <&kp M>, <&kp E>, <&kp S>, <&kp S>, <&kp X>,
+                       <&kp H>, <&kp S>, <&shift_the>;
+            antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z SPACE>;
+            max-delay-ms = <1000>;
+    };
+
+    magic_hold_tap: magic_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        bindings = <&mo>, <&magic_key>;
+    };
+
+    shift_the: shift_the {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&the>, <&the_upper>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
 };
 };
 
 /* Automatically generated macro definitions */
 / {
     macros {
-    
+        the: the {
+            label = "&THE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            
+            
+            bindings
+                = <&kp T>
+                , <&kp H>
+                , <&kp E>;
+        };
+    the_upper: the_upper {
+            label = "&THE_UPPER";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            
+            
+            bindings
+                = <&kp RS(T)>
+                , <&kp H>
+                , <&kp E>;
+        };
     };
 };
 
@@ -342,12 +379,12 @@ behaviors {
 
         layer_Basic {
             bindings = <
-  &kp LEFT  &kp RIGHT  &kp LC(Q)  &kp C_VOL_DN  &kp C_VOL_UP                                                                                     &kp PSCRN  &kp PAUSE_BREAK     &tog 2     &tog 3  &magic LAYER_Magic 0
-     &none        &n1        &n2           &n3           &n4      &n5                                                                       &n6        &n7              &n8        &n9        &n0               &kp F11
- &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                     &kp Z      &kp W            &kp D      &kp L      &kp Q               &kp F12
- &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                     &kp G      &kp S            &kp T      &kp R      &kp N                &kp F6
- &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 2 RET    &kp BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
-     &none   &sk LALT   &kp BSLH     &left_par    &right_par           &kp SPACE  &lt 2 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &magic_key           &und_mns        &kp MINUS  &kp LC(S)  &kp EQUAL                 &none
+  &kp LEFT  &kp RIGHT  &kp LC(Q)  &kp C_VOL_DN  &kp C_VOL_UP                                                                                                         &kp PSCRN  &kp PAUSE_BREAK     &tog 3     &tog 4  &magic LAYER_Magic 0
+     &none        &n1        &n2           &n3           &n4      &n5                                                                                           &n6        &n7              &n8        &n9        &n0               &kp F11
+ &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                                         &kp Z      &kp W            &kp D      &kp L      &kp Q               &kp F12
+ &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                                         &kp G      &kp S            &kp T      &kp R      &kp N                &kp F6
+ &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 3 RET                        &kp BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
+     &none   &sk LALT   &kp BSLH     &left_par    &right_par           &kp SPACE  &lt 3 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &magic_hold_tap LAYER_Symbol 0           &und_mns        &kp MINUS  &kp LC(S)  &kp EQUAL                 &none
             >;
         };
 
@@ -362,14 +399,25 @@ behaviors {
             >;
         };
 
+        layer_Symbol {
+            bindings = <
+ &trans  &trans         &trans        &trans        &trans                                                                               &trans     &trans     &trans      &trans  &trans
+ &trans  &trans         &trans        &trans        &trans         &trans                                                     &trans     &trans     &trans     &trans      &trans  &trans
+ &trans   &none      &kp MINUS      &kp LBKT      &kp RBKT  &kp RS(EQUAL)                                                      &none  &kp KP_N7  &kp KP_N8  &kp KP_N9       &none  &trans
+ &trans   &none  &kp RS(COMMA)    &kp RS(N9)    &kp RS(N0)    &kp RS(DOT)                                                  &kp EQUAL  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_N0  &trans
+ &trans   &none          &none  &kp RS(LBKT)  &kp RS(RBKT)          &none  &trans  &trans  &trans  &trans  &trans  &trans      &none  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT  &trans
+ &trans  &trans         &trans        &trans        &trans                 &trans  &trans  &trans  &trans  &trans  &trans                &trans     &trans     &trans      &trans  &trans
+            >;
+        };
+
         layer_Function {
             bindings = <
-          &trans      &trans     &trans     &trans     &trans                                                                                    &trans     &trans     &trans   &trans   &trans
- &kp LC(LA(DEL))      &kp F1     &kp F2     &kp F3     &kp F4     &kp F5                                                              &kp F6     &kp F7     &kp F8     &kp F9  &kp F10  &kp F11
-          &trans   &kp LC(W)  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp LC(V)                                                              &trans   &kp HOME    &kp END     &trans   &trans  &kp F12
-          &trans   &kp KP_N0  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp LC(C)                                                            &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT   &trans   &trans
-          &trans  &kp KP_DOT  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp LC(X)  &trans  &trans  &kp DEL  &trans       &trans      &trans    &trans  &kp PG_DN  &kp PG_UP     &trans   &trans   &trans
-          &trans      &trans     &trans   &kp LBKT   &kp RBKT             &trans  &trans   &trans  &trans  &kp LS(RET)  &caps_word               &trans     &trans     &trans   &trans   &trans
+          &trans     &trans     &trans     &trans     &trans                                                                                &trans     &trans     &trans   &trans   &trans
+ &kp LC(LA(DEL))     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5                                                          &kp F6     &kp F7     &kp F8     &kp F9  &kp F10  &kp F11
+          &trans  &kp LC(W)  &kp LC(Z)  &kp LC(Y)  &kp LC(R)  &kp LC(T)                                                           &none   &kp HOME    &kp END      &none    &none  &kp F12
+          &trans      &none      &none      &none      &none      &none                                                        &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT    &none   &trans
+          &trans      &none  &kp LC(X)  &kp LC(C)  &kp LC(V)      &none  &trans  &trans  &kp DEL  &trans  &kp LS(RET)  &trans     &none  &kp PG_DN  &kp PG_UP      &none    &none   &trans
+          &trans     &trans     &trans   &kp LBKT   &kp RBKT             &trans  &trans   &trans  &trans   &caps_word  &trans               &trans     &trans     &trans   &trans   &trans
             >;
         };
 
