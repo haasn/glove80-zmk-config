@@ -4,13 +4,15 @@ manifest:
       url-base: https://github.com/moergo-sc
     - name: ssbb
       url-base: https://github.com/ssbb
+    - name: haasn
+      url-base: https://github.com/haasn
   projects:
     - name: zmk
       remote: moergo-sc
       revision: main
       import: app/west.yml
     - name: zmk-antecedent-morph
-      remote: ssbb
+      remote: haasn
       revision: main
   self:
     path: config
