@@ -314,8 +314,8 @@ behaviors {
                    <&kp S>, <&kp Y>, <&kp I>, <&kp I>, <&kp Y>, <&kp R>,
                    <&kp T>, <&kp G>, <&kp A>, <&kp H>, <&kp U>, <&kp L>,
                    <&kp C>, <&kp M>, <&kp E>, <&kp S>, <&kp S>, <&kp X>,
-                   <&kp H>, <&kp S>, <&shift_the>;
-        antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z SPACE>;
+                   <&kp H>, <&kp S>, <&shift_the>, <&kp SLASH>;
+        antecedents = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z SPACE DOT>;
         max-delay-ms = <25000>;
     };
 
@@ -380,12 +380,12 @@ behaviors {
 
         layer_Basic {
             bindings = <
-  &kp LEFT  &kp RIGHT  &kp LC(Q)  &kp C_VOL_DN  &kp C_VOL_UP                                                                                                  &kp PSCRN  &kp PAUSE_BREAK     &tog 3     &tog 4  &magic LAYER_Magic 0
-     &none        &n1        &n2           &n3           &n4      &n5                                                                                    &n6        &n7              &n8        &n9        &n0               &kp F11
- &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                                  &kp Z      &kp W            &kp D      &kp L      &kp Q               &kp F12
- &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                                  &kp G      &kp S            &kp T      &kp R      &kp N                &kp F6
- &sk LSHFT  &cma_slsh   &kp SEMI     &dot_qstn         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 3 RET                 &kp BSPC   &kp V      &kp C            &kp M      &kp X      &kp B                 &none
-     &none   &sk LALT   &kp BSLH     &left_par    &right_par           &kp SPACE  &lt 3 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &ht_star LAYER_Symbol 0           &und_mns        &kp MINUS  &kp LC(S)  &kp EQUAL                 &none
+  &kp LEFT  &kp RIGHT  &kp LC(Q)  &kp C_VOL_DN  &kp C_VOL_UP                                                                                                  &kp PSCRN  &kp PAUSE_BREAK     &tog 3  &tog 4  &magic LAYER_Magic 0
+     &none        &n1        &n2           &n3           &n4      &n5                                                                                    &n6        &n7              &n8        &n9     &n0               &kp F11
+ &kp GRAVE      &kp J      &kp U         &kp O         &kp F  &kp SQT                                                                                  &kp Z      &kp W            &kp D      &kp L   &kp Q               &kp F12
+ &sk LCTRL      &kp I      &kp E         &kp A         &kp H    &kp P                                                                                  &kp G      &kp S            &kp T      &kp R   &kp N                &kp F6
+ &sk LSHFT  &kp COMMA   &kp SEMI       &kp DOT         &kp Y    &kp K    &kp TAB      &sl 1   &kp INS  &kp PG_UP  &lt 3 RET                 &kp BSPC   &kp V      &kp C            &kp M      &kp X   &kp B                 &none
+     &none   &sk LALT   &kp BSLH     &kp MINUS      &kp FSLH           &kp SPACE  &lt 3 ESC  &kp LGUI  &kp PG_DN  &sk RSHFT  &ht_star LAYER_Symbol 0           &und_mns        &kp EQUAL  &kp LC(S)   &none                 &none
             >;
         };
 
@@ -402,12 +402,12 @@ behaviors {
 
         layer_Symbol {
             bindings = <
- &trans  &trans         &trans        &trans        &trans                                                                               &trans     &trans     &trans      &trans  &trans
- &trans  &trans         &trans        &trans        &trans         &trans                                                     &trans     &trans     &trans     &trans      &trans  &trans
- &trans   &none      &kp MINUS      &kp LBKT      &kp RBKT  &kp RS(EQUAL)                                                      &none  &kp KP_N7  &kp KP_N8  &kp KP_N9       &none  &trans
- &trans   &none  &kp RS(COMMA)    &kp RS(N9)    &kp RS(N0)    &kp RS(DOT)                                                  &kp EQUAL  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_N0  &trans
- &trans   &none          &none  &kp RS(LBKT)  &kp RS(RBKT)          &none  &trans  &trans  &trans  &trans  &trans  &trans      &none  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT  &trans
- &trans  &trans         &trans        &trans        &trans                 &trans  &trans  &trans  &trans  &trans  &trans                &trans     &trans     &trans      &trans  &trans
+        &trans    &trans         &trans         &trans        &trans                                                                                   &trans     &trans     &trans      &trans  &trans
+        &trans    &trans         &trans         &trans        &trans         &trans                                                         &trans     &trans     &trans     &trans      &trans  &trans
+ &kp RS(GRAVE)     &none      &kp MINUS       &kp LBKT      &kp RBKT  &kp RS(EQUAL)                                                  &kp RS(EQUAL)  &kp KP_N7  &kp KP_N8  &kp KP_N9       &none  &trans
+        &trans     &none  &kp RS(COMMA)     &kp RS(N9)    &kp RS(N0)    &kp RS(DOT)                                                      &kp EQUAL  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_N0  &trans
+        &trans  &kp FSLH          &none   &kp RS(LBKT)  &kp RS(RBKT)          &none  &trans  &trans  &trans  &trans  &trans  &trans      &kp MINUS  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT  &trans
+        &trans    &trans   &kp RS(BSLH)  &kp RS(MINUS)  &kp RS(FSLH)                 &trans  &trans  &trans  &trans  &trans  &trans                    &trans     &trans     &trans      &trans  &trans
             >;
         };
 
