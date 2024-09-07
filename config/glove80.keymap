@@ -317,12 +317,14 @@ behaviors {
         label = "STAR_KEY";
         #binding-cells = <0>;
         defaults = <&sk RSHIFT>;
-        bindings = <&kp O>, <&kp U>, <&kp APOS>, <&kp A>, <&kp E>,
+        bindings = <&kp APOS>, <&kp I>,
+                   <&kp E>, <&kp U>,
+                   <&kp A>, <&kp O>,
                    <&kp Y>, <&kp Y>, <&kp Y>, <&kp H>,
-                   <&kp C>, <&kp S>, <&kp S>,
+                   <&kp C>, <&kp S>, <&kp S>, <&kp S>,
                    <&kp M>, <&kp D>, <&kp R>, <&kp L>,
                    <&kp U>, <&kp N>, <&kp L>;
-        antecedents = <A E I O U F H K P S C G D M L R Q N B>;
+        antecedents = <I J U E O A F H K P S C V G D M L R Q N B>;
         max-delay-ms = <450>;
     };
 
