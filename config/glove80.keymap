@@ -325,7 +325,7 @@ behaviors {
                    <&kp M>, <&kp D>, <&kp R>, <&kp L>,
                    <&kp U>, <&kp N>, <&kp L>;
         antecedents = <I J U E O A F H K P Y S C V G D M L R Q N B>;
-        max-delay-ms = <450>;
+        max-delay-ms = <850>;
     };
 
     ht_star: star_hold_tap {
