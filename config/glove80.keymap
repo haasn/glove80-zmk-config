@@ -368,12 +368,12 @@ behaviors {
 
         layer_Basic {
             bindings = <
-  &kp LEFT  &kp RIGHT     &none  &kp C_VOL_DN  &kp C_VOL_UP                                                                                                       &kp PSCRN  &kp PAUSE_BREAK  &tog 2    &tog 3  &magic LAYER_Magic 0
-     &none        &n1       &n2           &n3           &n4      &n5                                                                                         &n6        &n7              &n8     &n9       &n0               &kp F11
- &kp GRAVE      &kp J        &u            &o         &kp F  &kp SQT                                                                                       &kp Z      &kp W            &kp D   &kp L     &kp Q               &kp F12
- &sk LCTRL      &kp I        &e            &a         &kp H       &y                                                                                       &kp G      &kp S            &kp T   &kp R     &kp N                &kp F6
- &sk LSHFT  &kp COMMA  &kp SEMI       &kp DOT         &kp P    &kp K    &kp TAB  &kp LC(S)  &kp LC(Q)  &kp PG_UP       &sk RALT                 &kp BSPC   &kp V      &kp C            &kp M   &kp X     &kp B             &sk RSHFT
-     &none   &sk LALT     &none      &kp BSLH      &kp FSLH           &kp SPACE  &lt 2 ESC   &kp LGUI  &kp PG_DN  &mt RSHFT RET  &ht_star LAYER_Symbol 0          &kp MINUS        &kp EQUAL   &none  &sk RGUI             &sk RCTRL
+  &kp LEFT  &kp RIGHT     &none  &kp C_VOL_DN  &kp C_VOL_UP                                                                                                       &kp PSCRN  &kp PAUSE_BREAK         &tog 2    &tog 3  &magic LAYER_Magic 0
+     &none        &n1       &n2           &n3           &n4      &n5                                                                                         &n6        &n7              &n8            &n9       &n0               &kp F11
+ &kp GRAVE      &kp J        &u            &o         &kp F  &kp SQT                                                                                       &kp Z      &kp W            &kp D          &kp L     &kp Q               &kp F12
+ &sk LCTRL      &kp I        &e            &a         &kp H       &y                                                                                       &kp G      &kp S            &kp T          &kp R     &kp N                &kp F6
+ &sk LSHFT  &kp COMMA  &kp SEMI       &kp DOT         &kp P    &kp K    &kp TAB  &kp LC(S)  &kp LC(Q)  &kp PG_UP       &sk RALT                 &kp BSPC   &kp V      &kp C            &kp M          &kp X     &kp B             &sk RSHFT
+     &none   &sk LALT  &kp BSLH  &kp RS(FSLH)      &kp FSLH           &kp SPACE  &lt 2 ESC   &kp LGUI  &kp PG_DN  &mt RSHFT RET  &ht_star LAYER_Symbol 0          &kp MINUS        &kp EQUAL  &kp RS(EQUAL)  &sk RGUI             &sk RCTRL
             >;
         };
 
